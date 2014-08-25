@@ -1,0 +1,5 @@
+en:
+  membercli:
+    login:
+      ok: login has been succesfull
+      not_found: User has not been found
