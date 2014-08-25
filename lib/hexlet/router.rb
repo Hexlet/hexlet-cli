@@ -9,7 +9,9 @@ module Hexlet
       generate("api_member/user/check_auth")
     end
 
-    private def generate(url)
+    private
+
+    def generate(url)
       URI("#{@host}/#{url}.json").to_s
     end
   end
