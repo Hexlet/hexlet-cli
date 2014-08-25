@@ -3,6 +3,7 @@ require "hexlet/version"
 require 'logger'
 require 'yaml'
 require 'fileutils'
+require 'uri'
 
 require 'thor'
 require 'rest-client'
@@ -14,8 +15,11 @@ I18n.locale = :en
 
 I18n.load_path = Dir['locales/*.yml']
 I18n.backend.load_translations
+I18n.t "key" # FIXME this is hack
 
 module Hexlet
+  autoload "Router", "hexlet/router"
+
   autoload "BaseClient", "hexlet/base_client"
   # autoload "Client", "hexlet/base_client"
 

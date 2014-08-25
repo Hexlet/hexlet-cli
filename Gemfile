@@ -10,3 +10,5 @@ gem 'rest_client'
 gem 'minitest'
 gem 'wrong'
 gem 'webmock'
+
+gem 'fakefs', require: "fakefs/safe"

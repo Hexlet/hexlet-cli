@@ -6,7 +6,7 @@ module Hexlet
     CREDENTIALS_FILE = File.join(Dir.home, ".hexlet", "credentials")
 
     class_option :verbose, type: :boolean
-    class_option :host, type: :string
+    class_option :host, type: :string, default: "http://hexlet.io"
 
     desc "login HEXLET_API_KEY", "login on hexlet.io"
     def login(key)
@@ -28,6 +28,10 @@ module Hexlet
         logger = Logger.new(STDOUT)
         logger.level = options[:verbose] ? Logger::DEBUG : Logger::INFO
         logger
+      end
+
+      def router
+        Hexlet::Router.new(options[:host])
       end
 
       def t key
