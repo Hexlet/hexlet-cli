@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Hexlet/hexlet.svg?branch=master)](https://travis-ci.org/Hexlet/hexlet)
+
 # Hexlet
 
 TODO: Write a gem description
