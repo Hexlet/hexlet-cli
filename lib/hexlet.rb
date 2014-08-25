@@ -4,7 +4,10 @@ require 'logger'
 require 'yaml'
 require 'fileutils'
 require 'uri'
+require 'zlib'
 
+require 'archive/tar/minitar'
+require 'rake'
 require 'thor'
 require 'rest-client'
 require 'i18n'
@@ -21,7 +24,8 @@ module Hexlet
   autoload "Router", "hexlet/router"
 
   autoload "BaseClient", "hexlet/base_client"
-  # autoload "Client", "hexlet/base_client"
+  autoload "TeacherClient", "hexlet/teacher_client"
+  autoload "MemberClient", "hexlet/member_client"
 
   autoload "BaseCLI", "hexlet/base_cli"
   autoload "MemberCLI", "hexlet/member_cli"

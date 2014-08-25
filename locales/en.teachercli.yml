@@ -1,0 +1,5 @@
+en:
+  teachercli:
+    submit:
+      created: lesson has been uploaded
+      wrong_lesson_folder: Wrong lesson folder

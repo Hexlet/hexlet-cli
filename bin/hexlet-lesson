@@ -4,4 +4,4 @@ require 'rubygems'
 require 'hexlet'
 
 # raise ARGV.inspect
-Hexlet::MemberCLI.start
+Hexlet::TeacherCLI.start

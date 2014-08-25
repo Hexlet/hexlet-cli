@@ -5,6 +5,10 @@ module Hexlet
       @host = host
     end
 
+    def api_teacher_lessons_url
+      generate("api_teacher/lessons")
+    end
+
     def api_member_user_check_url
       generate("api_member/user/check_auth")
     end

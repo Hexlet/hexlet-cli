@@ -1,5 +1,10 @@
+ENV["TEST"] = "true"
+
 require 'bundler/setup'
 Bundler.require
+
+require 'minitest/unit'
+require 'mocha/mini_test'
 
 require 'webmock/minitest'
 

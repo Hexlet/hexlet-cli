@@ -19,19 +19,11 @@ module Hexlet
       end
     end
 
-    def self.source_root
-      File.dirname(__FILE__)
-    end
-
     no_commands do
       def logger
         logger = Logger.new(STDOUT)
         logger.level = options[:verbose] ? Logger::DEBUG : Logger::INFO
         logger
-      end
-
-      def router
-        Hexlet::Router.new(options[:host])
       end
 
       def t key
@@ -44,7 +36,7 @@ module Hexlet
         if File.file?(CREDENTIALS_FILE)
           YAML.load_file(CREDENTIALS_FILE)
         else
-          raise 'xxx'
+          {}
         end
       end
 
