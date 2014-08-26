@@ -1,12 +1,11 @@
 name: # FIXME write here
 language: # FIXME write here
+locale: en
 description: # FIXME write here
 mission: # FIXME write here
 audience: # FIXME write here
 units:
   - theory
-  # FIXME enable what you want
   # - quiz
-  # - terminal
   # - codex
-  # - code
+  # - backend
