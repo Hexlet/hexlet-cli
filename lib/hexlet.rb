@@ -12,7 +12,6 @@ require 'rake'
 require 'thor'
 require 'rest-client'
 require 'i18n'
-require 'childprocess'
 
 I18n.available_locales = [:en]
 I18n.enforce_available_locales = true

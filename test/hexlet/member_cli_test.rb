@@ -20,4 +20,31 @@ class Hexlet::MemberCLITest < MiniTest::Test
 
     assert_requested stub
   end
+
+  def test_fetch
+    stub = stub_request(:get, @router.api_member_lesson_backend_url("my_super", "exercise")).
+      to_return(:status => 200)
+
+    FakeFS do
+      result = Hexlet::MemberCLI.start ["fetch", "my_super", "exercise", "--verbose"]
+      assert { result }
+    end
+
+    assert_requested stub
+  end
+
+  def test_submit
+    stub = stub_request(:post, @router.api_member_lesson_backend_results_url("my_super", "exercise")).
+      to_return(:status => 201)
+    Open3.stubs(:capture3).returns(["", "", 0])
+
+    FakeFS do
+      folder = "my_super_lesson/exercise"
+      FileUtils.mkdir_p(folder)
+      result = Hexlet::MemberCLI.start ["submit", folder, "--verbose"]
+      assert { result }
+    end
+
+    assert_requested stub
+  end
 end

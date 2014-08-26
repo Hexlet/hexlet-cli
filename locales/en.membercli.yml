@@ -1,5 +1,9 @@
 en:
   membercli:
+    submit:
+      created: exercise result has been sent
+    fetch:
+      ok: exercise has been downloaded
     login:
       ok: login has been succesfull
       not_found: User has not been found
