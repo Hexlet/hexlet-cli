@@ -39,6 +39,12 @@ module Hexlet
       if content = client.fetch(lesson_slug, exercise_slug)
         lesson_path = File.join("/", "vagrant", "exercises", "#{lesson_slug}_lesson")
         exercise_path = File.join(lesson_path, exercise_slug)
+        if Dir.exists?(exercise_path)
+          unless yes?(t "ask.replace_exercise")
+            return true
+          end
+        end
+
         FileUtils.mkdir_p(exercise_path)
 
         tarball_path = File.join(exercise_path, "exercise.tar.gz")

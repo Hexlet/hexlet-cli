@@ -1,6 +1,7 @@
 module Hexlet
   class BaseCLI < Thor
     include Thor::Actions
+    # include Thor::Shell::Basic
 
     CONFIG_DIR = File.join(Dir.home, ".hexlet")
     CREDENTIALS_FILE = File.join(Dir.home, ".hexlet", "credentials")

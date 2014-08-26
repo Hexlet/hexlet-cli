@@ -6,6 +6,8 @@ en:
     fetch:
       ok: exercise has been downloaded
       not_found: lesson or exercise not found
+      ask:
+        replace_exercise: Exercise already exists. Would you like replace one?
     login:
       ok: login has been succesfull
       not_found: User has not been found
