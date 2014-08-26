@@ -1,5 +1,7 @@
 en:
   teachercli:
+    init:
+      lesson_folder_created: create '%{folder}'
     submit:
       created: lesson has been uploaded
       wrong_lesson_folder: Wrong lesson folder

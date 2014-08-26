@@ -12,8 +12,8 @@ module Hexlet
       @logger.debug url
 
       RestClient.get url, headers do |response, request, result, &block|
-      @logger.debug response
-      200 == response.code
+        @logger.debug response
+        200 == response.code
       end
     end
 

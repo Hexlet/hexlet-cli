@@ -26,10 +26,10 @@ module Hexlet
         logger
       end
 
-      def t key
+      def t key, options = {}
         command_name =  @_invocations.values.last.last
         ns = self.class.to_s.downcase.split("::").last
-        I18n.t key, scope: [ns, command_name]
+        I18n.t key, options.merge(scope: [ns, command_name])
       end
 
       def config

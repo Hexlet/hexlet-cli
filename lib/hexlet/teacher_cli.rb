@@ -1,5 +1,15 @@
 module Hexlet
   class TeacherCLI < BaseCLI
+    desc "init LESSON_NAME", "init lesson skeleton"
+    def init(lesson_name)
+      folder = "#{lesson_name}_lesson"
+      FileUtils.mkdir(folder)
+      template_folder = File.join(File.dirname(__FILE__), "templates", "lesson", ".")
+      FileUtils.cp_r(template_folder, folder)
+
+      puts (t "lesson_folder_created", folder: folder)
+    end
+
     desc "submit PATH_TO_LESSON", "submit lesson"
     def submit(path)
       lesson_folder = File.split(path)[1]
