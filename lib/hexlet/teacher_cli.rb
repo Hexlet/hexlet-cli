@@ -12,7 +12,8 @@ module Hexlet
 
     desc "submit PATH_TO_LESSON", "submit lesson"
     def submit(path)
-      lesson_folder = File.split(path)[1]
+      expanded_path = File.expand_path(path)
+      lesson_folder = File.split(expanded_path)[1]
       parts = lesson_folder.split("_")
 
       if parts.last != "lesson"

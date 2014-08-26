@@ -2,7 +2,8 @@ module Hexlet
   class MemberCLI < BaseCLI
     desc "submit PATH_TO_EXERCISE", "submit exercise"
     def submit(path)
-      lesson_path, exercise_folder_name = File.split(path)
+      expanded_path = File.expand_path(path)
+      lesson_path, exercise_folder_name = File.split(expanded_path)
       lesson_folder_name = File.split(lesson_path)[1]
       parts = lesson_folder_name.split("_")
 
