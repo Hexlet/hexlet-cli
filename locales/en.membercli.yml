@@ -2,8 +2,10 @@ en:
   membercli:
     submit:
       created: exercise result has been sent
+      wrong_lesson_folder: wrong folder, please submit the exercise folder
     fetch:
       ok: exercise has been downloaded
+      not_found: lesson or exercise not found
     login:
       ok: login has been succesfull
       not_found: User has not been found
