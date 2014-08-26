@@ -5,12 +5,14 @@ require 'yaml'
 require 'fileutils'
 require 'uri'
 require 'zlib'
+require 'open3'
 
 require 'archive/tar/minitar'
 require 'rake'
 require 'thor'
 require 'rest-client'
 require 'i18n'
+require 'childprocess'
 
 I18n.available_locales = [:en]
 I18n.enforce_available_locales = true

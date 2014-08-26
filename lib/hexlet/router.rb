@@ -5,6 +5,14 @@ module Hexlet
       @host = host
     end
 
+    def api_member_lesson_backend_results_url(lesson_slug, exercise_slug)
+      generate("api_member/lessons/%s/backends/%s/results" % [lesson_slug, exercise_slug])
+    end
+
+    def api_member_lesson_backend_url(lesson_slug, exercise_slug)
+      generate("api_member/lessons/%s/backends/%s" % [lesson_slug, exercise_slug])
+    end
+
     def api_teacher_lessons_url
       generate("api_teacher/lessons")
     end

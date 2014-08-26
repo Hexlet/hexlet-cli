@@ -1,6 +1,6 @@
 module Hexlet
   class TeacherCLI < BaseCLI
-    desc "submit PATH_TO_LESSON", "login on hexlet.io"
+    desc "submit PATH_TO_LESSON", "submit lesson"
     def submit(path)
       lesson_folder = File.split(path)[1]
       parts = lesson_folder.split("_")
