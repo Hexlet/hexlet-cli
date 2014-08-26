@@ -25,5 +25,4 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rest_client"
   spec.add_dependency "i18n"
   spec.add_dependency "minitar"
-  # spec.add_dependency "childprocess"
 end

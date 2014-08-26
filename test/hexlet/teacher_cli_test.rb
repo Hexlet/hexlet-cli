@@ -17,7 +17,7 @@ class Hexlet::TeacherCLITest < MiniTest::Test
       to_return(:status => 201)
 
     FakeFS do
-      folder = "my_super_lesson"
+      folder = "super_lesson"
       FileUtils.mkdir(folder)
       result = Hexlet::TeacherCLI.start ["submit", folder, "--verbose"]
       assert { result }
