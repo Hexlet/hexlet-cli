@@ -8,6 +8,7 @@ module Hexlet
       FileUtils.cp_r(template_folder, folder)
 
       puts (t "lesson_folder_created", folder: folder)
+      true
     end
 
     desc "submit PATH_TO_LESSON", "submit lesson"
@@ -21,12 +22,11 @@ module Hexlet
         return false
       end
 
-      slug = parts[0, parts.size - 2].join("_")
-      locale = parts[-2]
+      slug = parts[0, parts.size - 1].join("_")
 
-      filepath = generate_lesson_tarball(path)
+      filepath = generate_lesson_tarball(expanded_path)
 
-      result = client.submit slug, locale, filepath
+      result = client.submit slug, filepath
 
       if result
         puts (t :created)

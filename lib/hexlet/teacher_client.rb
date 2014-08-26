@@ -1,6 +1,6 @@
 module Hexlet
   class TeacherClient < BaseClient
-    def submit(slug, locale, file)
+    def submit(slug, file)
       url = @router.api_teacher_lessons_url
       @logger.debug url
 
@@ -9,7 +9,6 @@ module Hexlet
       attrs = {
         lesson: {
           slug: slug,
-          locale: locale,
           "packs_attributes[]" => [
             {tarball: fd}
           ]
