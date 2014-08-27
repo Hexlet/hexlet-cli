@@ -17,10 +17,6 @@ I18n.available_locales = [:en]
 I18n.enforce_available_locales = true
 I18n.locale = :en
 
-I18n.load_path = Dir['locales/*.yml']
-I18n.backend.load_translations
-I18n.t "key" # FIXME this is hack
-
 module Hexlet
   autoload "Router", "hexlet/router"
 
@@ -32,5 +28,11 @@ module Hexlet
   autoload "MemberCLI", "hexlet/member_cli"
   autoload "TeacherCLI", "hexlet/teacher_cli"
 
-  # Your code goes here...
+  def self.root
+    File.expand_path '../..', __FILE__
+  end
 end
+
+I18n.load_path = Dir[File.join(Hexlet.root, 'locales', '*.yml')]
+I18n.backend.load_translations
+I18n.t "key" # FIXME this is hack
