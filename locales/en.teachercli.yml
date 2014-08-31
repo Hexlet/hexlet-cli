@@ -4,5 +4,5 @@ en:
       lesson_folder_created: create '%{folder}'
     submit:
       error: "Can't submit lesson"
-      created: lesson has been uploaded
+      created: Lesson submitted
       wrong_lesson_folder: Wrong lesson folder
