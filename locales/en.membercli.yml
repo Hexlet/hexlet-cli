@@ -1,13 +1,13 @@
 en:
   membercli:
     submit:
-      created: exercise result has been sent
-      wrong_lesson_folder: wrong folder, please submit the exercise folder
+      created: Exercise submitted
+      wrong_lesson_folder: Wrong folder, please submit the exercise folder
     fetch:
-      ok: exercise has been downloaded
-      not_found: lesson or exercise not found
+      ok: Exercise downloaded
+      not_found: Lesson or exercise not found
       ask:
-        replace_exercise: Exercise already exists. Would you like replace one?
+        replace_exercise: Exercise already exists. Would you like overwrite it?
     login:
-      ok: login has been succesfull
-      not_found: User has not been found
+      ok: Logged in
+      not_found: User not found
