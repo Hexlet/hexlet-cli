@@ -26,6 +26,7 @@ module Hexlet
 
       filepath = generate_lesson_tarball(expanded_path)
 
+      client = build_client
       result = client.submit slug, filepath
 
       if result
@@ -68,8 +69,8 @@ module Hexlet
       exercise_tarball_path
     end
 
-    def client
-      @client ||= Hexlet::TeacherClient.new config["hexlet_api_key"], logger: logger, host: options["host"]
+    def build_client(key = config["hexlet_api_key"])
+      Hexlet::TeacherClient.new key, logger: logger, host: options["host"]
     end
   end
 end

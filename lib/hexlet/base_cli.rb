@@ -11,7 +11,7 @@ module Hexlet
 
     desc "login HEXLET_API_KEY", "login on hexlet.io"
     def login(key)
-      client = BaseClient.new key, logger: logger
+      client = build_client(key)
       if client.login
         puts (t :ok)
         write_config("hexlet_api_key" => key)

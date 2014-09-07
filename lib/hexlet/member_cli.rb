@@ -18,6 +18,7 @@ module Hexlet
       # process.start
       _, e, s = Open3.capture3("make test -C #{path}")
       if s == 0
+        client = build_client
         result = client.submit lesson_slug, exercise_folder_name
         if result
           puts (t :created)
@@ -36,6 +37,7 @@ module Hexlet
     desc "fetch LESSON_SLUG EXERCISE_SLUG", "download lesson exercise"
     def fetch(lesson_slug, exercise_slug)
       # FIXME check login
+      client = build_client
       if content = client.fetch(lesson_slug, exercise_slug)
         lesson_path = File.join("/", "vagrant", "exercises", "#{lesson_slug}_lesson")
         exercise_path = File.join(lesson_path, exercise_slug)
@@ -67,8 +69,8 @@ module Hexlet
 
     private
 
-    def client
-      @client ||= Hexlet::MemberClient.new config["hexlet_api_key"], logger: logger, host: options["host"]
+    def build_client(key = config["hexlet_api_key"])
+      Hexlet::MemberClient.new options[:key], logger: logger, host: options["host"]
     end
   end
 end
