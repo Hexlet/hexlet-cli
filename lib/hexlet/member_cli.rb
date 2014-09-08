@@ -70,7 +70,7 @@ module Hexlet
     private
 
     def build_client(key = config["hexlet_api_key"])
-      Hexlet::MemberClient.new options[:key], logger: logger, host: options["host"]
+      Hexlet::MemberClient.new key, logger: logger, host: options["host"]
     end
   end
 end
