@@ -10,7 +10,7 @@ class Hexlet::MemberCLITest < MiniTest::Test
     config_file = File.join(Dir.home, ".hexlet", "credentials")
 
     stub = stub_request(:get, @router.api_member_user_check_url).
-      with(:headers => {'Accept'=>'*/*; q=0.5, application/xml', 'Accept-Encoding'=>'gzip, deflate', 'User-Agent'=>'Ruby', 'X-Hexlet-Api-Key'=>api_key}).
+      with(:headers => {'X-Hexlet-Api-Key'=>api_key}).
       to_return(:status => 200)
 
     FakeFS do
