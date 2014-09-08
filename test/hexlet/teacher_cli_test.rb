@@ -13,7 +13,9 @@ class Hexlet::TeacherCLITest < MiniTest::Test
   end
 
   def test_submit
+    # api_key = "api_key"
     stub = stub_request(:post, @router.api_teacher_lessons_url).
+      # with(:headers => {'X-Hexlet-Api-Key' => api_key}).
       to_return(:status => 201)
 
     FakeFS do
