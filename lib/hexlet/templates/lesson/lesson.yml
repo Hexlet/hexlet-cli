@@ -1,6 +1,6 @@
-name: # FIXME write here
-language: # FIXME write here
-locale: en
+name: # FIXME name of the lesson
+language: # FIXME programming language used
+locale: # FIXME en for English, ru for Russian
 description: # FIXME write here
 mission: # FIXME write here
 audience: # FIXME write here
