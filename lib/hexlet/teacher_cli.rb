@@ -1,28 +1,28 @@
 module Hexlet
   class TeacherCLI < BaseCLI
-    desc "init LESSON_NAME", "init lesson skeleton"
+    desc 'init LESSON_NAME', 'init lesson skeleton'
     def init(lesson_name)
       folder = "#{lesson_name}_lesson"
       FileUtils.mkdir(folder)
-      template_folder = File.join(File.dirname(__FILE__), "templates", "lesson", ".")
+      template_folder = File.join(File.dirname(__FILE__), 'templates', 'lesson', '.')
       FileUtils.cp_r(template_folder, folder)
 
-      puts (t "lesson_folder_created", folder: folder)
+      puts(t 'lesson_folder_created', folder: folder)
       true
     end
 
-    desc "submit PATH_TO_LESSON", "submit lesson"
+    desc 'submit PATH_TO_LESSON', 'submit lesson'
     def submit(path)
       expanded_path = File.expand_path(path)
       lesson_folder = File.split(expanded_path)[1]
-      parts = lesson_folder.split("_")
+      parts = lesson_folder.split('_')
 
-      if parts.last != "lesson"
-        puts (t "wrong_lesson_folder")
+      if parts.last != 'lesson'
+        puts(t 'wrong_lesson_folder')
         return false
       end
 
-      slug = parts[0, parts.size - 1].join("_")
+      slug = parts[0, parts.size - 1].join('_')
 
       filepath = generate_lesson_tarball(expanded_path)
 
@@ -30,10 +30,10 @@ module Hexlet
       result = client.submit slug, filepath
 
       if result
-        puts (t :created)
+        puts(t :created)
         true
       else
-        puts (t :error)
+        puts(t :error)
         false
       end
     end
@@ -41,8 +41,8 @@ module Hexlet
     private
 
     def generate_lesson_tarball(path)
-      dist_path = File.join(path, "dist")
-      exercise_tarball_path = File.join(dist_path, "exercise.tar.gz")
+      dist_path = File.join(path, 'dist')
+      exercise_tarball_path = File.join(dist_path, 'exercise.tar.gz')
 
       FileUtils.mkdir_p(dist_path)
 
@@ -51,11 +51,19 @@ module Hexlet
 
         Archive::Tar::Minitar::Output.open(sgz) do |stream|
           FileUtils.cd path do
-            files = Rake::FileList.new("**/*") do |f|
-              f.exclude /node_modules/
-              f.exclude /bower_components/
-              f.exclude /dist/
-              f.exclude ".git"
+            files = Rake::FileList.new('**/*') do |f|
+              f.exclude(/node_modules/)
+              f.exclude(/bower_components/)
+              f.exclude(/dist/)
+              f.exclude('.git')
+
+              ignorefile_path = './.gitignore'
+              if File.file?(ignorefile_path)
+                patterns = File.read(ignorefile_path).split('\n')
+                patterns.each do |pattern|
+                  f.exclude pattern
+                end
+              end
             end
 
             # raise files.inspect
@@ -69,8 +77,8 @@ module Hexlet
       exercise_tarball_path
     end
 
-    def build_client(key = config["hexlet_api_key"])
-      Hexlet::TeacherClient.new key, logger: logger, host: options["host"]
+    def build_client(key = config['hexlet_api_key'])
+      Hexlet::TeacherClient.new key, logger: logger, host: options['host']
     end
   end
 end

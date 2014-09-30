@@ -3,33 +3,33 @@ module Hexlet
     include Thor::Actions
     # include Thor::Shell::Basic
 
-    CONFIG_DIR = File.join(Dir.home, ".hexlet")
-    CREDENTIALS_FILE = File.join(Dir.home, ".hexlet", "credentials")
+    CONFIG_DIR = File.join(Dir.home, '.hexlet')
+    CREDENTIALS_FILE = File.join(Dir.home, '.hexlet', 'credentials')
 
     class_option :verbose, type: :boolean
-    class_option :host, type: :string, default: "http://hexlet.io"
+    class_option :host, type: :string, default: 'http://hexlet.io'
 
-    desc "login HEXLET_API_KEY", "login on hexlet.io"
+    desc 'login HEXLET_API_KEY', 'login on hexlet.io'
     def login(key)
       client = build_client(key)
       if client.login
-        puts (t :ok)
-        write_config("hexlet_api_key" => key)
+        puts(t :ok)
+        write_config('hexlet_api_key' => key)
       else
-        puts (t :not_found)
+        puts(t :not_found)
       end
     end
 
     no_commands do
-      def logger
-        logger = Logger.new(STDOUT)
+      def logger(output = STDOUT)
+        logger = Logger.new(output)
         logger.level = options[:verbose] ? Logger::DEBUG : Logger::INFO
         logger
       end
 
-      def t key, options = {}
+      def t(key, options = {})
         command_name =  @_invocations.values.last.last
-        ns = self.class.to_s.downcase.split("::").last
+        ns = self.class.to_s.downcase.split('::').last
         I18n.t key, options.merge(scope: [ns, command_name])
       end
 
@@ -46,7 +46,7 @@ module Hexlet
         File.open(CREDENTIALS_FILE, 'w') do |f|
           f.write data.to_yaml
         end
-        # TODO puts (I18n.t "update_config")
+        # TODO: puts (I18n.t 'update_config')
       end
     end
   end

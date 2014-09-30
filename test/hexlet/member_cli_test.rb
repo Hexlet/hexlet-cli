@@ -6,11 +6,12 @@ class Hexlet::MemberCLITest < MiniTest::Test
   end
 
   def test_login
+    # TODO use faker
     api_key = "api_key"
     config_file = File.join(Dir.home, ".hexlet", "credentials")
 
     stub = stub_request(:get, @router.api_member_user_check_url).
-      with(:headers => {'X-Hexlet-Api-Key'=>api_key}).
+      with(:headers => {'X-Hexlet-Api-Key' => api_key}).
       to_return(:status => 200)
 
     FakeFS do
