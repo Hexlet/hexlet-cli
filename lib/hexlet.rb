@@ -1,4 +1,4 @@
-require "hexlet/version"
+require 'hexlet/version'
 
 require 'logger'
 require 'yaml'
@@ -12,27 +12,28 @@ require 'rake'
 require 'thor'
 require 'rest-client'
 require 'i18n'
+require 'childprocess'
 
 I18n.available_locales = [:en]
 I18n.enforce_available_locales = true
 I18n.locale = :en
 
 module Hexlet
-  autoload "Router", "hexlet/router"
-
-  autoload "BaseClient", "hexlet/base_client"
-  autoload "TeacherClient", "hexlet/teacher_client"
-  autoload "MemberClient", "hexlet/member_client"
-
-  autoload "BaseCLI", "hexlet/base_cli"
-  autoload "MemberCLI", "hexlet/member_cli"
-  autoload "TeacherCLI", "hexlet/teacher_cli"
-
   def self.root
     File.expand_path '../..', __FILE__
   end
+
+  autoload 'Router', 'hexlet/router'
+
+  autoload 'BaseClient', "#{root}/lib/hexlet/base_client"
+  autoload 'TeacherClient', "#{root}/lib/hexlet/teacher_client"
+  autoload 'MemberClient', "#{root}/lib/hexlet/member_client"
+
+  autoload 'BaseCLI', "#{root}/lib/hexlet/base_cli"
+  autoload 'MemberCLI', "#{root}/lib/hexlet/member_cli"
+  autoload 'TeacherCLI', "#{root}/lib/hexlet/teacher_cli"
 end
 
 I18n.load_path = Dir[File.join(Hexlet.root, 'locales', '*.yml')]
 I18n.backend.load_translations
-I18n.t "key" # FIXME this is hack
+I18n.t 'key' # FIXME: this is hack

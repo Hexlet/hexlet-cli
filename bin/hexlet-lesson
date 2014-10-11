@@ -1,7 +1,9 @@
 #!/usr/bin/env ruby
 
-require 'rubygems'
-require 'hexlet'
+# require 'rubygems'
+root = File.expand_path('../..', __FILE__)
+hexlet = root  + '/lib/hexlet'
+require hexlet
 
 # raise ARGV.inspect
 Hexlet::TeacherCLI.start

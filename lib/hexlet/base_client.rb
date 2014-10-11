@@ -2,7 +2,7 @@ module Hexlet
   class BaseClient
     def initialize(key, options={})
       @key = key
-      @host = options[:host] || "http://hexlet.io"
+      @host = options[:host] || 'http://hexlet.io'
       @logger = options[:logger]
       @router = Router.new @host
     end
